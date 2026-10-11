@@ -1,0 +1,146 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+}
+
+h1 {
+  padding-bottom: 1rem;
+}
+
+.card {
+  border: 2px solid #111;
+  border-radius: 20px;
+  width: min(700px, calc(100% - 2rem));
+  max-width: 700px;
+  margin: 3rem auto 0;
+}
+
+.changelog {
+  --line-color: #111;
+  --dot-color: #111;
+
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.changelog::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: calc(35% + 20px);
+  width: 2px;
+  background: var(--line-color);
+  transform: translateX(-50%);
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 35% 40px 1fr;
+  align-items: start;
+  position: relative;
+  padding-bottom: 36px;
+}
+
+.entry time {
+  text-align: right;
+  padding: 4px 24px 0 0;
+  color: #777;
+}
+
+.dot {
+  justify-self: center;
+  margin-top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--dot-color);
+  z-index: 1;
+}
+
+.content {
+  padding-left: 24px;
+}
+
+.content h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.visit-btn-cont {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.visit-btn-cont button {
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  background-color: rgb(34, 34, 34);
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+@media (max-width: 750px) {
+  .changelog::before {
+    left: calc(1rem + 10px);
+  }
+
+  header {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .changelog {
+    padding: 0 1rem;
+  }
+
+  .card {
+    width: calc(100% - 1rem);
+    margin: 0.5rem auto;
+  }
+
+  .entry {
+    grid-template-columns: 20px 1fr;
+    column-gap: 12px;
+    row-gap: 8px;
+  }
+
+  .entry time {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: left;
+    padding: 0;
+  }
+
+  .dot {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .content {
+    grid-column: 2;
+    padding-left: 0;
+    min-width: 0;
+  }
+
+  .content h2 {
+    overflow-wrap: anywhere;
+  }
+}
