@@ -3,3 +3,5 @@
 # Links
 
 - https://roadmap.sh/projects/changelog-component
+
+- https://bustaa.github.io/changelog-component/
